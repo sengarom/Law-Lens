@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for a polished look */
+body {
+  @apply bg-gray-50 text-gray-800 font-sans;
+}
+
+header {
+  @apply bg-gradient-to-r from-blue-900 to-blue-700 text-white py-12 px-5 text-center shadow-lg;
+}
+
+header h1 {
+  @apply text-5xl font-extrabold tracking-wide;
+}
+
+nav {
+  @apply bg-blue-800 flex justify-center gap-6 py-4 shadow-md;
+}
+
+nav a {
+  @apply text-white font-medium hover:text-blue-300 transition-colors;
+}
+
+.section-title {
+  @apply text-3xl font-semibold mb-6;
+}
+
+.container {
+  @apply flex flex-wrap justify-center gap-8 p-8;
+}
+
+.card {
+  @apply bg-white w-80 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl;
+}
+
+.card h2 {
+  @apply text-xl font-bold text-blue-800 mb-4;
+}
+
+.card p {
+  @apply text-gray-600 mb-6;
+}
+
+.card a {
+  @apply inline-block bg-blue-700 text-white py-2 px-4 rounded-md font-medium hover:bg-blue-800 transition;
+}
+
+footer {
+  @apply bg-gray-800 text-white text-center py-6 mt-12;
+}
+
+footer p {
+  @apply text-sm;
+}
+
+@media (max-width: 768px) {
+  .container {
+    @apply flex-col items-center;
+  }
+}

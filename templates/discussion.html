@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion Forum</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #333;
+        }
+
+        .discussion-form {
+            margin-bottom: 20px;
+        }
+
+        .discussion-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: none;
+            min-height: 100px;
+        }
+
+        .discussion-form button {
+            display: block;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .discussion-form button:hover {
+            background-color: #45a049;
+        }
+
+        .comments {
+            margin-top: 20px;
+        }
+
+        .comment {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .comment h3 {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            color: #4CAF50;
+        }
+
+        .comment p {
+            margin: 0;
+            color: #555;
+        }
+
+        .reply-form {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .reply-form textarea {
+            width: calc(100% - 20px);
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: none;
+            min-height: 60px;
+        }
+
+        .reply-form button {
+            display: block;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin-top: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .reply-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .replies {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .reply {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .reply h4 {
+            margin: 0 0 5px 0;
+            font-size: 14px;
+            color: #007BFF;
+        }
+
+        .reply p {
+            margin: 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Discussion Forum</h1>
+        </div>
+
+        <div class="discussion-form">
+            <textarea placeholder="Write your comment here..."></textarea>
+            <button>Post Comment</button>
+        </div>
+
+        <div class="comments">
+            <div class="comment">
+                <h3>User1</h3>
+                <p>This is an example comment to show how the forum will look.</p>
+
+                <div class="reply-form">
+                    <textarea placeholder="Write your reply..."></textarea>
+                    <button>Reply</button>
+                </div>
+
+                <div class="replies">
+                    <!-- <div class="reply">
+                        <h4>Reply by User2</h4>
+                        <p>This is a reply to the comment.</p>
+                    </div>
+
+                    <div class="reply">
+                        <h4>Reply by User3</h4>
+                        <p>Another reply to the same comment.</p>
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="comment">
+                <h3>User2</h3>
+                <p>I love the design of this forum!</p>
+
+                <div class="reply-form">
+                    <textarea placeholder="Write your reply..."></textarea>
+                    <button>Reply</button>
+                </div>
+            </div>
+
+            <div class="comment">
+                <h3>User3</h3>
+                <p>Can we add more features like upvotes and replies?</p>
+
+                <div class="reply-form">
+                    <textarea placeholder="Write your reply..."></textarea>
+                    <button>Reply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
