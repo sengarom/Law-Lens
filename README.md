@@ -1,8 +1,10 @@
+<div align="center">
+  <img src="placeholder_logo.png" alt="Law Lens Logo" width="200"/>
   <h1>Law Lens ⚖️</h1>
   <p>Your AI-Powered Legal Companion</p>
 </div>
 
-LegalTalk is a revolutionary, free, AI-powered platform meticulously designed to empower individuals by making legal knowledge accessible. Understand your rights, stay ahead with the latest legal news, and get instant, intelligent answers to your legal questions via our smart chatbot. Whether you're navigating complex legal landscapes or simply aiming to be well-informed, LegalTalk demystifies the law for everyone.
+Law Lens is a revolutionary, free, AI-powered platform meticulously designed to empower individuals by making legal knowledge accessible. Understand your rights, stay ahead with the latest legal news, and get instant, intelligent answers to your legal questions via our smart chatbot. Whether you're navigating complex legal landscapes or simply aiming to be well-informed, Law Lens demystifies the law for everyone.
 
 ## ✨ Features
 
@@ -19,12 +21,12 @@ LegalTalk is a revolutionary, free, AI-powered platform meticulously designed to
 
 ## 🛠️ Installation & Setup
 
-Get LegalTalk up and running on your local machine.
+Get Law Lens up and running on your local machine.
 
 1.  **Clone the Repository:**
     ```bash
-    git clone https://github.com/your-username/LegalTalk.git
-    cd LegalTalk
+    git clone https://github.com/your-username/LawLens.git
+    cd LawLens
     ```
 2.  **Set Up Python Virtual Environment:**
     ```bash
@@ -60,12 +62,12 @@ Get LegalTalk up and running on your local machine.
     ```
     *(Or use the command specific to your Python framework, e.g., `flask run`)*
 
-2.  **Access LegalTalk:**
+2.  **Access Law Lens:**
     Open your favorite web browser and go to `http://127.0.0.1:5000` (or the configured port).
 
 ## 🤝 Contributing
 
-We welcome contributions to make LegalTalk even better!
+We welcome contributions to make Law Lens even better!
 
 1.  Fork the Project
 2.  Create your Awesome Feature Branch (`git checkout -b feature/AmazingFeature`)
