@@ -1,6 +1,4 @@
-<div align="center">
-  <img src="placeholder_logo.png" alt="LegalTalk Logo" width="200"/>
-  <h1>LegalTalk ⚖️</h1>
+  <h1>Law Lens ⚖️</h1>
   <p>Your AI-Powered Legal Companion</p>
 </div>
 
