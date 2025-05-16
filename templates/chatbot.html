@@ -5,6 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legal Chatbot</title>
     <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
+        .chat-box { background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%); border-radius: 1.5rem; min-height: 28rem; }
+        .chat-message { margin-bottom: 1.5rem; display: flex; align-items: flex-end; }
+        .chat-message.user { justify-content: flex-end; }
+        .chat-message.bot { justify-content: flex-start; }
+        .chat-bubble { padding: 1.1rem 1.7rem; border-radius: 1.5rem; max-width: 75%; font-size: 1.13rem; box-shadow: 0 2px 12px 0 rgba(30, 64, 175, 0.07); word-break: break-word; }
+        .chat-message.user .chat-bubble { background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%); color: #fff; border-bottom-right-radius: 0.4rem; border-bottom-left-radius: 1.5rem; border-top-right-radius: 1.5rem; border-top-left-radius: 1.5rem; }
+        .chat-message.bot .chat-bubble { background: #fff; color: #1e293b; border-bottom-left-radius: 0.4rem; border-bottom-right-radius: 1.5rem; border-top-right-radius: 1.5rem; border-top-left-radius: 1.5rem; border: 1px solid #dbeafe; }
+        .chat-container { box-shadow: 0 10px 24px 0 rgba(30, 64, 175, 0.10), 0 1.5px 4px 0 rgba(30, 64, 175, 0.08); }
+        #chat-form button[disabled] { opacity: 0.6; cursor: not-allowed; }
+        .chat-avatar { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 1.2rem; margin-right: 0.8rem; box-shadow: 0 2px 8px 0 rgba(30, 64, 175, 0.10); }
+        .chat-message.user .chat-avatar { display: none; }
+        .chat-message.bot .chat-avatar { margin-left: 0; margin-right: 0.8rem; }
+        .chat-message.user { flex-direction: row-reverse; }
+        .chat-message.user .chat-bubble { margin-right: 0.8rem; }
+        .chat-message.bot .chat-bubble { margin-left: 0.8rem; }
+        .chat-box::-webkit-scrollbar { width: 8px; background: #e0e7ff; border-radius: 8px; }
+        .chat-box::-webkit-scrollbar-thumb { background: #bcd0fa; border-radius: 8px; }
+        @media (max-width: 640px) {
+            .chat-container { padding: 0.5rem !important; }
+            .chat-box { min-height: 18rem; }
+            .chat-bubble { font-size: 1rem; padding: 0.8rem 1.1rem; }
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
     <header class="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-12 px-5 text-center shadow-lg">
@@ -14,22 +40,69 @@
         <a href="/" class="text-white font-medium hover:text-blue-300 transition-colors">Home</a>
         <a href="/news" class="text-white font-medium hover:text-blue-300 transition-colors">News & Updates</a>
     </nav>
-
     <section class="container py-12">
         <div class="section-title text-3xl font-semibold mb-6 text-center">Ask Your Legal Questions</div>
-        <div class="chat-container max-w-4xl mx-auto p-6 bg-gray-100 rounded-lg shadow-md">
-            <div id="chat-box" class="chat-box h-96 overflow-y-auto p-4 bg-white rounded-lg border border-gray-300 mb-4"></div>
+        <div class="chat-container max-w-2xl mx-auto p-6 bg-gray-100 rounded-2xl">
+            <div id="chat-box" class="chat-box h-96 overflow-y-auto p-4 mb-4"></div>
             <form id="chat-form" class="flex gap-4">
-                <input type="text" id="user-input" class="flex-grow p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Type your legal question here..." required>
+                <input type="text" id="user-input" class="flex-grow p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Type your legal question here..." required autocomplete="off">
                 <button type="submit" class="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-6 py-3 rounded-lg hover:from-blue-600 hover:to-blue-800 transition-all">Send</button>
             </form>
         </div>
     </section>
-
     <footer class="bg-gray-800 text-white text-center py-6 mt-12">
         <p class="text-sm">&copy; 2025 Law Lens. All rights reserved.</p>
     </footer>
-
-    <script src="/static/js/chatbot.js"></script>
+    <script>
+    const chatBox = document.getElementById('chat-box');
+    const chatForm = document.getElementById('chat-form');
+    const userInput = document.getElementById('user-input');
+    function addMessage(text, sender) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'chat-message ' + sender;
+        if (sender === 'bot') {
+            const avatar = document.createElement('div');
+            avatar.className = 'chat-avatar';
+            avatar.textContent = 'L';
+            msgDiv.appendChild(avatar);
+        }
+        const bubble = document.createElement('div');
+        bubble.className = 'chat-bubble';
+        bubble.textContent = text;
+        msgDiv.appendChild(bubble);
+        chatBox.appendChild(msgDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+    chatForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const message = userInput.value.trim();
+        if (!message) return;
+        addMessage(message, 'user');
+        userInput.value = '';
+        userInput.disabled = true;
+        chatForm.querySelector('button').disabled = true;
+        addMessage('Thinking...', 'bot');
+        try {
+            const res = await fetch('/chatbot', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message })
+            });
+            const data = await res.json();
+            chatBox.removeChild(chatBox.lastChild); // Remove 'Thinking...'
+            if (data.reply) {
+                addMessage(data.reply, 'bot');
+            } else {
+                addMessage('Sorry, I could not process your request.', 'bot');
+            }
+        } catch {
+            chatBox.removeChild(chatBox.lastChild);
+            addMessage('Sorry, there was a problem connecting to the server.', 'bot');
+        }
+        userInput.disabled = false;
+        chatForm.querySelector('button').disabled = false;
+        userInput.focus();
+    });
+    </script>
 </body>
 </html>
