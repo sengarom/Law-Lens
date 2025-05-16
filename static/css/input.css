@@ -4,7 +4,7 @@
 
 /* Custom styles for a polished look */
 body {
-  @apply bg-gray-50 text-gray-800 font-sans;
+  @apply bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen;
 }
 
 header {
@@ -24,7 +24,7 @@ nav a {
 }
 
 .section-title {
-  @apply text-3xl font-semibold mb-6;
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400;
 }
 
 .container {
@@ -32,7 +32,7 @@ nav a {
 }
 
 .card {
-  @apply bg-white w-80 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl;
+  @apply bg-white w-80 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:scale-105;
 }
 
 .card h2 {
@@ -45,6 +45,30 @@ nav a {
 
 .card a {
   @apply inline-block bg-blue-700 text-white py-2 px-4 rounded-md font-medium hover:bg-blue-800 transition;
+}
+
+#news-list .card {
+  @apply bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl shadow-xl border border-blue-200 flex flex-col justify-between h-full p-6;
+}
+
+#news-list .card a {
+  @apply text-2xl font-extrabold text-blue-800 hover:text-blue-600 hover:underline block mb-2 leading-tight;
+}
+
+#news-list .card p {
+  @apply text-gray-700 mt-2 text-base;
+}
+
+#news-list .card .inline-block {
+  @apply bg-blue-200 text-blue-800 text-xs px-3 py-1 rounded-full font-semibold mr-2;
+}
+
+#news-list .card svg {
+  @apply w-4 h-4 text-blue-400 ml-auto;
+}
+
+#news-list {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
 }
 
 footer {
