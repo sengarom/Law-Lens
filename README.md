@@ -4,7 +4,26 @@
   <p>Your AI-Powered Legal Companion</p>
 </div>
 
-Law Lens is a revolutionary, free, AI-powered platform meticulously designed to empower individuals by making legal knowledge accessible. Understand your rights, stay ahead with the latest legal news, and get instant, intelligent answers to your legal questions via our smart chatbot. Whether you're navigating complex legal landscapes or simply aiming to be well-informed, Law Lens demystifies the law for everyone.
+---
+
+# 🚦 Before You Start: Essential Setup
+
+> **To use Law Lens, you must set up a few things first!**
+
+- **Hugging Face Account:**
+  - Create a free account at [huggingface.co](https://huggingface.co/).
+  - Run `huggingface-cli login` in your terminal and paste your access token to authenticate.
+- **Hugging Face Model Cache Location:**
+  - To save disk space and speed up downloads, set your cache location (optional but recommended):
+    ```powershell
+    $env:HF_HOME = "O:\hf_cache"
+    # To make this permanent, add to your user environment variables.
+    ```
+- **newsdata.io API Key:**
+  - Get a free API key at [newsdata.io](https://newsdata.io/).
+  - Replace the placeholder in `app.py` with your API key if you want your own news quota.
+- **Python & Node.js:**
+  - Make sure you have Python 3.8+ and Node.js 16+ installed.
 
 ---
 
@@ -26,8 +45,8 @@ Law Lens is a revolutionary, free, AI-powered platform meticulously designed to 
 
 *   **Backend:** Python (Flask)
 *   **Frontend:** HTML, CSS, JavaScript
-*   **Styling:** Tailwind CSS - Making things look good!
-*   **AI/Chatbot:** Llama 2 (meta-llama/Llama-2-13b-chat-hf) via Hugging Face Transformers
+*   **Styling:** Tailwind CSS - Modern, beautiful, and responsive
+*   **AI/Chatbot:** TinyLlama-1.1B (via Hugging Face Transformers)
 
 ---
 
@@ -64,9 +83,7 @@ Law Lens is a revolutionary, free, AI-powered platform meticulously designed to 
 
 ---
 
-## 🛠️ Installation & Setup
-
-Get Law Lens up and running on your local machine.
+## 🛠️ Installation & Setup (macOS/Linux)
 
 1.  **Clone the Repository:**
     ```bash
@@ -75,47 +92,35 @@ Get Law Lens up and running on your local machine.
     ```
 2.  **Set Up Python Virtual Environment:**
     ```bash
-    python -m venv venv
-    # On Windows
-    .\venv\Scripts\activate
-    # On macOS/Linux
-    # source venv/bin/activate
+    python3 -m venv venv
+    source venv/bin/activate
     ```
 3.  **Install Python Dependencies:**
-    Make sure you have a `requirements.txt` file!
     ```bash
     pip install -r requirements.txt
     ```
-    *(Tip: Generate `requirements.txt` with `pip freeze > requirements.txt` after installing packages like Flask, etc.)*
-
 4.  **Install Node.js Dependencies (for Tailwind CSS):**
     ```bash
     npm install
     ```
 5.  **Build Tailwind CSS:**
-    Ensure your `package.json` has the `build:css` script.
     ```bash
     npm run build:css
     ```
-    *(Example `package.json` script: `"build:css": "tailwindcss -i ./static/css/input.css -o ./static/css/style.css --watch"`)*
-
-## 🏃‍♂️ Running the Application
-
-1.  **Start the Python Backend:**
+6.  **Run the App:**
     ```bash
     python app.py
     ```
-    *(Or use the command specific to your Python framework, e.g., `flask run`)*
-
-2.  **Access Law Lens:**
-    Open your favorite web browser and go to `http://127.0.0.1:5000` (or the configured port).
+7.  **Open in Browser:**
+    Go to [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
 ---
 
-## 💡 Tips
+## 💡 Tips & Tricks
 
-- **Model Download:** The Llama 2 model is large (~10GB). Ensure you have a stable internet connection and enough disk space.
-- **Authentication:** For Llama 2, log in with `huggingface-cli login` before running the app.
+- **Model Download:** TinyLlama-1.1B is small and fast, but the first run will download weights (~1GB). Make sure you have a stable internet connection.
+- **Authentication:** Always log in with `huggingface-cli login` before running the app.
+- **Cache Location:** Set `HF_HOME` to move the Hugging Face cache to a fast drive (SSD recommended).
 - **Customization:** Tweak the chatbot, add new legal resources, or style the frontend with Tailwind for a unique look!
 
 ---
